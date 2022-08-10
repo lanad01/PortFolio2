@@ -29,7 +29,7 @@ export const cont = [
   },
   {
     layout: "post",
-    title: "프로젝트",
+    title: "프로젝트2",
     subTitle: "하나의 팀프로젝트와 두가지 개인프로젝트 ",
     image: "img/callum-shaw-555357-unsplash.jpg",
     author: [""],
