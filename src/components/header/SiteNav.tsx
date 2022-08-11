@@ -17,6 +17,7 @@ interface SiteNavProps {
   isHome?: boolean;
   isPost?: boolean;
   post?: any;
+  onClick?: void;
 }
 
 interface SiteNavState {
@@ -87,6 +88,10 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
       borderRadius: "30px",
       marginLeft: "20px",
     };
+    const onClick = (e: any) => {
+      this.props.onClick(e);
+    };
+
     return (
       <>
         {config.showSubscribe && <SubscribeModal ref={this.subscribe} />}
@@ -96,31 +101,46 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
             <SiteNavContent css={[this.state.showTitle ? HideNav : ""]}>
               <ul css={NavStyles} role="menu">
                 <li role="" style={style}>
-                  <Link to="/" activeClassName="nav-current">
-                    SW
-                  </Link>
+                  <div onClick={() => onClick("home")}>
+                    <Link to="/" activeClassName="nav-current">
+                      SW
+                    </Link>
+                  </div>
+                </li>
+                <li role="menuitem" style={{}}>
+                  <div onClick={() => onClick("about")} css={item}>
+                    ABOUT
+                  </div>
                 </li>
                 <li role="menuitem">
-                  <Link to="/" activeClassName="nav-current">
-                    Profile
-                  </Link>
+                  <div onClick={() => onClick("skills")} css={item}>
+                    스킬
+                  </div>
                 </li>
                 <li role="menuitem">
-                  <Link to="/project" activeClassName="nav-current">
+                  <div onClick={() => onClick("about")} css={item}>
                     참여 프로젝트
-                  </Link>
+                  </div>
                 </li>
+
                 <li role="menuitem">
                   <Link
                     to="https://lanad.tistory.com/"
                     activeClassName="nav-current"
+                    css={item}
                   >
                     T-Story
                   </Link>
+                  {/* <div css={item}>T-Story</div> */}
                 </li>
-                {/* <a href="https://lanad.tistory.com/" target="_blank" rel="noopener noreferrer">
-                  T-story
-                </a> */}
+                <li role="menuitem">
+                  <Link
+                    to="https://github.com/lanad01"
+                    activeClassName="nav-current"
+                  >
+                    GitHub
+                  </Link>
+                </li>
               </ul>
               {isPost && (
                 <NavPostTitle ref={this.titleRef} className="nav-post-title">
@@ -129,36 +149,6 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
               )}
             </SiteNavContent>
           </SiteNavLeft>
-          <SiteNavRight>
-            {/* <SocialLinks>
-              {config.facebook && (
-                <a
-                  className="social-link-fb"
-                  css={[SocialLink, SocialLinkFb]}
-                  href={config.facebook}
-                  target="_blank"
-                  title="Facebook"
-                  rel="noopener noreferrer"
-                >
-                  <Facebook />
-                </a>
-              )}
-              {config.twitter && (
-                <a
-                  css={SocialLink}
-                  href={config.twitter}
-                  title="Twitter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Twitter />
-                </a>
-              )}
-            </SocialLinks> */}
-            {/* {config.showSubscribe && (
-              <SubscribeButton onClick={this.openModal}>Subscribe</SubscribeButton>
-            )} */}
-          </SiteNavRight>
         </nav>
       </>
     );
@@ -189,6 +179,7 @@ const SiteNavStyles = css`
   overflow-y: hidden;
   height: 64px;
   font-size: 1.3rem;
+  font-family: none;
 `;
 
 const SiteNavLeft = styled.div`
@@ -216,6 +207,14 @@ const SiteNavLeft = styled.div`
 const SiteNavContent = styled.div`
   position: relative;
   align-self: flex-start;
+`;
+
+const item = css`
+  position: relative;
+  display: block;
+  padding: 12px 12px;
+  color: #fff;
+  transition: opacity 0.35s ease-in-out;
 `;
 
 const NavStyles = css`

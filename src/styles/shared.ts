@@ -1,9 +1,10 @@
-import { lighten } from 'polished';
+import { lighten } from "polished";
 
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import { JuaRegular } from "../assets/font/JuaRegular.ttf";
 
-import { colors } from './colors';
+import { colors } from "./colors";
 
 export const outer = css`
   position: relative;
@@ -17,6 +18,18 @@ export const inner = css`
   width: 100%;
 `;
 
+export const intro = css`
+  .multi-bg-example {
+    width: 100%;
+    height: 400px;
+    background-image: url(https://mdn.mozillademos.org/files/11305/firefox.png),
+      url(https://mdn.mozillademos.org/files/11307/bubbles.png),
+      linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: bottom right, left, right;
+  }
+`;
+
 export const SiteNavMain = css`
   position: fixed;
   top: 0;
@@ -24,12 +37,11 @@ export const SiteNavMain = css`
   left: 0;
   z-index: 1000;
   /* background: color(var(--darkgrey) l(-5%)); */
-  background: ${lighten('-0.05', colors.darkgrey)};
+  background: ${lighten("-0.05", colors.darkgrey)};
 `;
 
 export const SiteMain = css`
   flex-grow: 1;
-
   @media (prefers-color-scheme: dark) {
     background: ${colors.darkmode};
   }
@@ -125,11 +137,11 @@ export const SiteHeaderStyles = css`
   padding-bottom: 12px;
   color: #fff;
   /* background: color(var(--darkgrey) l(-5%)) no-repeat center center; */
-  background: ${lighten('-0.05', colors.darkgrey)} no-repeat center center;
+  background: ${lighten("-0.05", colors.darkgrey)} no-repeat center center;
   background-size: cover;
 
   :before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -140,7 +152,7 @@ export const SiteHeaderStyles = css`
     background: rgba(0, 0, 0, 0.18);
   }
   :after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -156,6 +168,15 @@ export const SiteHeaderStyles = css`
     :before {
       background: rgba(0, 0, 0, 0.6);
     }
+  }
+  .multi-bg-example {
+    width: 100%;
+    height: 400px;
+    background-image: url(https://mdn.mozillademos.org/files/11305/firefox.png),
+      url(https://mdn.mozillademos.org/files/11307/bubbles.png),
+      linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: bottom right, left, right;
   }
 `;
 
@@ -187,10 +208,12 @@ export const SiteHeaderBackground = css`
   margin-top: 64px;
 `;
 
-export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string }>`
-  ${p =>
-    p.backgroundImage
-    && `
+export const ResponsiveHeaderBackground = styled.div<{
+  backgroundImage?: string;
+}>`
+  ${(p) =>
+    p.backgroundImage &&
+    `
     position: relative;
     margin-top: 64px;
     padding-bottom: 12px;
@@ -232,9 +255,9 @@ export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string 
     }
   `}
 
-  ${p =>
-    !p.backgroundImage
-    && `
+  ${(p) =>
+    !p.backgroundImage &&
+    `
 
     padding-top: 0;
     padding-bottom: 0;
@@ -253,7 +276,7 @@ export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string 
   .site-header-content {
     padding: 5vw 0 10px;
     /* border-bottom: 1px solid color(var(--lightgrey) l(+12%)); */
-    border-bottom: 1px solid ${lighten('0.12', colors.lightgrey)};
+    border-bottom: 1px solid ${lighten("0.12", colors.lightgrey)};
   }
 
   .author-bio {
@@ -316,7 +339,7 @@ export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string 
 
     .site-header-content {
       /* border-bottom-color: color(var(--darkmode) l(+15%)); */
-      /* border-bottom-color: ${lighten('0.15', colors.darkmode)}; */
+      /* border-bottom-color: ${lighten("0.15", colors.darkmode)}; */
       border-bottom-color: #272a30;
     }
 
@@ -325,6 +348,18 @@ export const ResponsiveHeaderBackground = styled.div<{ backgroundImage?: string 
     }
   }
   `}
+`;
+
+export const Font = css`
+  .hihi {
+    color: inherit;
+    @font-face {
+      font-family: "JuaRegular";
+      src: local("JuaRegular"), local("JuaRegular");
+      font-style: normal;
+      src: url(${JuaRegular}) format("truetype");
+    }
+  }
 `;
 
 export const NoImage = css`
@@ -346,7 +381,7 @@ export const NoImage = css`
   .no-image .site-header-content {
     padding: 5vw 0 10px;
     /* border-bottom: 1px solid color(var(--lightgrey) l(+12%)); */
-    border-bottom: 1px solid ${lighten('0.12', colors.lightgrey)};
+    border-bottom: 1px solid ${lighten("0.12", colors.lightgrey)};
   }
 
   .no-image .author-bio {
@@ -403,7 +438,7 @@ export const NoImage = css`
 
     .no-image .site-header-content {
       /* border-bottom-color: color(var(--darkmode) l(+15%)); */
-      border-bottom-color: ${lighten('0.15', colors.darkmode)};
+      border-bottom-color: ${lighten("0.15", colors.darkmode)};
     }
 
     .no-image .author-social-link a {

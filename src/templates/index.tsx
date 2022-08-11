@@ -2,9 +2,7 @@ import { graphql } from "gatsby";
 import { getSrc, getImage } from "gatsby-plugin-image";
 import React from "react";
 import { Helmet } from "react-helmet";
-
 import { css } from "@emotion/react";
-
 import { Footer } from "../components/Footer";
 import SiteNav from "../components/header/SiteNav";
 import Pagination from "../components/Pagination";
@@ -16,18 +14,21 @@ import {
   outer,
   PostFeed,
   Posts,
-  SiteDescription,
   SiteHeader,
-  SiteHeaderContent,
   SiteMain,
-  SiteTitle,
   SiteHeaderStyles,
-  AuthorProfileImage,
+  intro,
 } from "../styles/shared";
 import config from "../website-config";
 import { PageContext } from "./post";
 import { cont } from "../content/cont";
 import { CustomPost } from "../components/CustomPost";
+import GlobalFont from "../styles/GlobalFont";
+import { url } from "inspector";
+import { useRef } from "react";
+import { AboutMe } from "../components/AboutMe";
+import "../styles/App.css";
+import { Skills } from "../components/Skills";
 
 export interface IndexProps {
   children: React.ReactNode;
@@ -49,6 +50,17 @@ export interface IndexProps {
 function IndexPage(props: IndexProps) {
   const width = getImage(props.data.header)?.width;
   const height = getImage(props.data.header)?.height;
+
+  const aboutRef = useRef<null | HTMLDivElement>(null);
+  const skillRef = useRef<null | HTMLDivElement>(null);
+
+  const onClick = (e: string) => {
+    if (e == "about") {
+      aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+    } else if (e == "skills") {
+      skillRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <IndexLayout css={HomePosts}>
@@ -91,7 +103,7 @@ function IndexPage(props: IndexProps) {
         <meta property="og:image:width" content={width?.toString()} />
         <meta property="og:image:height" content={height?.toString()} />
       </Helmet>
-      <Wrapper>
+      <Wrapper className="App">
         <div
           css={[outer, SiteHeader, SiteHeaderStyles]}
           className="site-header-background"
@@ -100,27 +112,43 @@ function IndexPage(props: IndexProps) {
           }}
         >
           <div css={inner}>
-            <SiteNav isHome />
+            <SiteNav isHome onClick={onClick} />
             {/* <SiteHeaderContent className="site-header-content">
               <SiteTitle className="site-title"></SiteTitle>
               {/* <SiteDescription>{config.description}</SiteDescription> */}
             {/* </SiteHeaderContent> */}
           </div>
         </div>
-
-        <main id="site-main" css={[SiteMain, outer]}>
-          {/* <img
-              style={{ width: '150px', height: '150px', marginTop: '50px', borderRadius: '100px' }}
-              src="https://lh3.googleusercontent.com/lEZYpUDzV-T88KKY1Kz4K9E6ShTkqGq3CKbZzUVbyu7ocLIWGT02AlJMKDNshuOwpH9Ikr7swNF6jrJrK3o4evLgfeq073i9WorRn5QBMQ_91ZDcRjjf=w600-h600-n"
-            /> */}
-          <div css={[inner, Posts]}>
-            <div css={[PostFeed]}>
+        <div
+          css={intro}
+          className="multi-bg-example"
+          style={styles.intro_photo}
+        >
+          <div css={intro} style={styles.intro} className="multi-bg-example2">
+            <h1 style={styles.intro_text}>
+              신입 개발자 권상우의 포트폴리오 페이지
+            </h1>
+          </div>
+        </div>
+        <div ref={aboutRef}>
+          <AboutMe />
+        </div>
+        <div ref={skillRef}>
+          <Skills />
+        </div>
+        <main
+          id="site-main"
+          css={[SiteMain, outer]}
+          style={{ backgroundColor: "black" }}
+        >
+          <div css={[inner, Posts]} style={{ backgroundColor: "black" }}>
+            <div css={[PostFeed]} style={{ backgroundColor: "black" }}>
               {cont.map((v, i) => {
                 return <CustomPost data={v} />;
               })}
             </div>
           </div>
-          <div css={[inner, Posts]}>
+          {/* <div css={[inner, Posts]}>
             <div css={[PostFeed]}>
               {props.data.allMarkdownRemark.edges.map(
                 (post, index) =>
@@ -131,7 +159,7 @@ function IndexPage(props: IndexProps) {
                   )
               )}
             </div>
-          </div>
+          </div> */}
         </main>
 
         {props.children}
@@ -141,11 +169,41 @@ function IndexPage(props: IndexProps) {
             numPages={props.pageContext.numPages}
           />
         )}
+
         <Footer />
       </Wrapper>
     </IndexLayout>
   );
 }
+
+const styles = {
+  intro_photo: {
+    width: "100%",
+    height: "800px",
+    background:
+      "url(https://dt40dm21pj8em.cloudfront.net/uploads/froala/file/3822/%EA%B0%9C%EB%B0%9C%EC%9E%90%20%EC%B7%A8%EC%97%851.jpg) no-repeat , linear-gradient(135deg, #50A684 90%, #115E67 50%)",
+  },
+
+  intro: {
+    width: "100%",
+    height: "800px",
+    backgroundColor: "black",
+    background: "rgba(0,0,0,.6)",
+    justifyContent: "center",
+    alignItems: "center",
+    verticalAlign: "center",
+    textAlign: "center",
+    position: "absolute",
+    zIndex: 0,
+  },
+  intro_text: {
+    color: "white",
+    opacity: 1,
+    position: "relative",
+    top: "200px",
+    zIndex: 1,
+  },
+};
 
 export const pageQuery = graphql`
   query blogPageQuery($skip: Int!, $limit: Int!) {

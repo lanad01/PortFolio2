@@ -1,11 +1,13 @@
-import { format } from 'date-fns';
-import { Link } from 'gatsby';
-import _ from 'lodash';
-import { lighten } from 'polished';
-import React from 'react';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
-import { colors } from '../styles/colors';
+import { format } from "date-fns";
+import { Link } from "gatsby";
+import _ from "lodash";
+import { lighten } from "polished";
+import React from "react";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import { colors } from "../styles/colors";
+import GlobalStyle from "../styles/GlobalStyle";
+import { Font } from "../styles/shared";
 
 export interface CustomPostProps {
   data: CustomProps;
@@ -25,25 +27,33 @@ export interface CustomProps {
 
 export const CustomPost = ({ data }: CustomPostProps) => {
   const date = new Date(data.date);
-  const datetime = format(date, 'yyyy-MM-dd');
-  const displayDatetime = format(date, 'dd LLL yyyy');
+  const datetime = format(date, "yyyy-MM-dd");
+  const displayDatetime = format(date, "dd LLL yyyy");
   return (
     <article css={[PostCardStyles]}>
       <Link to={data.to}>
-        <img src={data.imgUri} style={{ width: '300px', height: '200px' }} />
+        <img src={data.imgUri} style={{ width: "300px", height: "200px" }} />
       </Link>
-      <Link className="post-card-content-link" css={PostCardContentLink} to={data.to}>
+      <Link
+        className="post-card-content-link"
+        css={PostCardContentLink}
+        to={data.to}
+      >
         <PostCardHeader className="post-card-header">
-          <h4 css={[PostCardExcerpt]} style={{ color: '#3366BB' }}>
+          <h4 css={[PostCardExcerpt]} style={{ color: "#fff" }}>
             {data.title}
           </h4>
-          <PostCardTitle className="post-card-title">{data.subTitle}</PostCardTitle>
+          <PostCardTitle css={NoImage} className="post-card-title">
+            {data.subTitle}
+          </PostCardTitle>
         </PostCardHeader>
       </Link>
       <PostCardExcerpt className="post-card-excerpt">
         <p>{data.excerpt || data.excerpt}</p>
       </PostCardExcerpt>
-      <time dateTime={datetime}>{displayDatetime}</time>{' '}
+      <time dateTime={datetime} style={{ color: "white" }}>
+        {displayDatetime}
+      </time>{" "}
     </article>
   );
 };
@@ -57,6 +67,16 @@ const PostCardStyles = css`
   padding: 0 20px 40px;
   min-height: 220px;
   background-size: cover;
+`;
+
+const NoImage = css`
+  position: relative;
+  display: block;
+  color: white;
+  font-size: 16px;
+  :hover {
+    text-decoration: none;
+  }
 `;
 
 const PostCardLarge = css`
@@ -159,18 +179,29 @@ const PostCardTitle = styled.h2`
   margin: 0 0 0.4em;
   line-height: 1.15em;
   transition: color 0.2s ease-in-out;
-
   @media (prefers-color-scheme: dark) {
     color: rgba(255, 255, 255, 0.85);
+  }
+  @font-face{
+    font-family: "Jua-Regular";
+    src: url("../assets/font/Jua-Regular.ttf");
+
+  @font-face {
+    font-family: "JuaRegular";
+    src: url("../assets/font/Jua-Regular.ttf") format("ttf");
+    url("../assets/font/Jua-Regular.ttf") format('ttf'),
+    url("../assets/font/Jua-Regular.ttf") format('truetype')
+    font-weight: normal;
+    font-style: normal;
   }
 `;
 
 const PostCardExcerpt = styled.section`
-  font-family: Georgia, serif;
+  font-family: "Jua-Regular";
 
   @media (prefers-color-scheme: dark) {
     /* color: color(var(--midgrey) l(+10%)); */
-    color: ${lighten('0.1', colors.midgrey)} !important;
+    color: ${lighten("0.1", colors.midgrey)} !important;
   }
 `;
 
@@ -186,7 +217,7 @@ const PostCardBylineContent = styled.div`
   flex-direction: column;
   margin: 4px 0 0 10px;
   /* color: color(var(--midgrey) l(+10%)); */
-  color: ${lighten('0.1', colors.midgrey)};
+  color: ${lighten("0.1", colors.midgrey)};
   font-size: 1.2rem;
   line-height: 1.4em;
   font-weight: 400;
@@ -199,7 +230,7 @@ const PostCardBylineContent = styled.div`
 
   a {
     /* color: color(var(--darkgrey) l(+20%)); */
-    color: ${lighten('0.2', colors.darkgrey)};
+    color: ${lighten("0.2", colors.darkgrey)};
     font-weight: 600;
   }
 
@@ -225,7 +256,7 @@ export const StaticAvatar = css`
 
   @media (prefers-color-scheme: dark) {
     /* border-color: color(var(--darkgrey) l(+2%)); */
-    border-color: ${lighten('0.02', colors.darkgrey)};
+    border-color: ${lighten("0.02", colors.darkgrey)};
   }
 `;
 
@@ -234,7 +265,7 @@ export const AuthorProfileImage = css`
   width: 100%;
   height: 100%;
   /* background: color(var(--lightgrey) l(+10%)); */
-  background: ${lighten('0.1', colors.lightgrey)};
+  background: ${lighten("0.1", colors.lightgrey)};
   border-radius: 100%;
   object-fit: cover;
 

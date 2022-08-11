@@ -13,6 +13,9 @@
     "preserveConstEnums": true,
     "incremental": true,
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   }
 }

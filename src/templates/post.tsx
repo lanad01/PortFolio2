@@ -1,25 +1,25 @@
-import { format } from 'date-fns';
-import { graphql, Link } from 'gatsby';
-import { GatsbyImage, getSrc, getImage } from 'gatsby-plugin-image';
-import * as _ from 'lodash';
-import { lighten, setLightness } from 'polished';
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import { format } from "date-fns";
+import { graphql, Link } from "gatsby";
+import { GatsbyImage, getSrc, getImage } from "gatsby-plugin-image";
+import * as _ from "lodash";
+import { lighten, setLightness } from "polished";
+import React from "react";
+import { Helmet } from "react-helmet";
 
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
-import { Footer } from '../components/Footer';
-import SiteNav, { SiteNavMain } from '../components/header/SiteNav';
-import PostContent from '../components/PostContent';
-import { ReadNext } from '../components/ReadNext';
-import { Subscribe } from '../components/subscribe/Subscribe';
-import { Wrapper } from '../components/Wrapper';
-import IndexLayout from '../layouts';
-import { colors } from '../styles/colors';
-import { inner, outer, SiteMain } from '../styles/shared';
-import config from '../website-config';
-import { AuthorList } from '../components/AuthorList';
+import { Footer } from "../components/Footer";
+import SiteNav, { SiteNavMain } from "../components/header/SiteNav";
+import PostContent from "../components/PostContent";
+import { ReadNext } from "../components/ReadNext";
+import { Subscribe } from "../components/subscribe/Subscribe";
+import { Wrapper } from "../components/Wrapper";
+import IndexLayout from "../layouts";
+import { colors } from "../styles/colors";
+import { inner, outer, SiteMain } from "../styles/shared";
+import config from "../website-config";
+import { AuthorList } from "../components/AuthorList";
 
 export interface Author {
   name: string;
@@ -106,9 +106,9 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
 
   const date = new Date(post.frontmatter.date);
   // 2018-08-20
-  const datetime = format(date, 'yyyy-MM-dd');
+  const datetime = format(date, "yyyy-MM-dd");
   // 20 AUG 2018
-  const displayDatetime = format(date, 'dd LLL yyyy');
+  const displayDatetime = format(date, "dd LLL yyyy");
 
   return (
     <IndexLayout className="post-template">
@@ -116,11 +116,17 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
         <html lang={config.lang} />
         <title>{post.frontmatter.title}</title>
 
-        <meta name="description" content={post.frontmatter.excerpt || post.excerpt} />
+        <meta
+          name="description"
+          content={post.frontmatter.excerpt || post.excerpt}
+        />
         <meta property="og:site_name" content={config.title} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.frontmatter.title} />
-        <meta property="og:description" content={post.frontmatter.excerpt || post.excerpt} />
+        <meta
+          property="og:description"
+          content={post.frontmatter.excerpt || post.excerpt}
+        />
         <meta property="og:url" content={config.siteUrl + location.pathname} />
         {post.frontmatter.image && (
           <meta
@@ -128,18 +134,28 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
             content={`${config.siteUrl}${getSrc(post.frontmatter.image)}`}
           />
         )}
-        <meta property="article:published_time" content={post.frontmatter.date} />
+        <meta
+          property="article:published_time"
+          content={post.frontmatter.date}
+        />
         {/* not sure if modified time possible */}
         {/* <meta property="article:modified_time" content="2018-08-20T15:12:00.000Z" /> */}
         {post.frontmatter.tags && (
           <meta property="article:tag" content={post.frontmatter.tags[0]} />
         )}
 
-        {config.facebook && <meta property="article:publisher" content={config.facebook} />}
-        {config.facebook && <meta property="article:author" content={config.facebook} />}
+        {config.facebook && (
+          <meta property="article:publisher" content={config.facebook} />
+        )}
+        {config.facebook && (
+          <meta property="article:author" content={config.facebook} />
+        )}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.frontmatter.title} />
-        <meta name="twitter:description" content={post.frontmatter.excerpt || post.excerpt} />
+        <meta
+          name="twitter:description"
+          content={post.frontmatter.excerpt || post.excerpt}
+        />
         <meta name="twitter:url" content={config.siteUrl + location.pathname} />
         {post.frontmatter.image && (
           <meta
@@ -150,21 +166,27 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
         <meta name="twitter:label1" content="Written by" />
         <meta name="twitter:data1" content={post.frontmatter.author[0].name} />
         <meta name="twitter:label2" content="Filed under" />
-        {post.frontmatter.tags && <meta name="twitter:data2" content={post.frontmatter.tags[0]} />}
+        {post.frontmatter.tags && (
+          <meta name="twitter:data2" content={post.frontmatter.tags[0]} />
+        )}
         {config.twitter && (
           <meta
             name="twitter:site"
-            content={`@${config.twitter.split('https://twitter.com/')[1]}`}
+            content={`@${config.twitter.split("https://twitter.com/")[1]}`}
           />
         )}
         {config.twitter && (
           <meta
             name="twitter:creator"
-            content={`@${config.twitter.split('https://twitter.com/')[1]}`}
+            content={`@${config.twitter.split("https://twitter.com/")[1]}`}
           />
         )}
-        {width && <meta property="og:image:width" content={width?.toString()} />}
-        {height && <meta property="og:image:height" content={height?.toString()} />}
+        {width && (
+          <meta property="og:image:width" content={width?.toString()} />
+        )}
+        {height && (
+          <meta property="og:image:height" content={height?.toString()} />
+        )}
       </Helmet>
       <Wrapper css={PostTemplate}>
         <header className="site-header">
@@ -180,31 +202,44 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
             <article css={[PostFull, !post.frontmatter.image && NoImage]}>
               <PostFullHeader className="post-full-header">
                 <PostFullTags className="post-full-tags">
-                  {post.frontmatter.tags && post.frontmatter.tags.length > 0 && config.showAllTags && (
+                  {post.frontmatter.tags &&
+                    post.frontmatter.tags.length > 0 &&
+                    config.showAllTags &&
                     post.frontmatter.tags.map((tag, idx) => (
                       <React.Fragment key={tag}>
-                        {idx > 0 && (<>, &nbsp;</>)}
+                        {idx > 0 && <>, &nbsp;</>}
                         <Link to={`/tags/${_.kebabCase(tag)}/`}>{tag}</Link>
                       </React.Fragment>
-                    ))
-                  )}
-                  {post.frontmatter.tags && post.frontmatter.tags.length > 0 && !config.showAllTags && (
-                    <Link to={`/tags/${_.kebabCase(post.frontmatter.tags[0])}/`}>
-                      {post.frontmatter.tags[0]}
-                    </Link>
-                  )}
+                    ))}
+                  {post.frontmatter.tags &&
+                    post.frontmatter.tags.length > 0 &&
+                    !config.showAllTags && (
+                      <Link
+                        to={`/tags/${_.kebabCase(post.frontmatter.tags[0])}/`}
+                      >
+                        {post.frontmatter.tags[0]}
+                      </Link>
+                    )}
                 </PostFullTags>
-                <PostFullTitle className="post-full-title">{post.frontmatter.title}</PostFullTitle>
+                <PostFullTitle className="post-full-title">
+                  {post.frontmatter.title}
+                </PostFullTitle>
                 <PostFullCustomExcerpt className="post-full-custom-excerpt">
                   {post.frontmatter.excerpt}
                 </PostFullCustomExcerpt>
                 <PostFullByline className="post-full-byline">
                   <section className="post-full-byline-content">
-                    <AuthorList authors={post.frontmatter.author} tooltip="large" />
+                    <AuthorList
+                      authors={post.frontmatter.author}
+                      tooltip="large"
+                    />
                     <section className="post-full-byline-meta">
                       <h4 className="author-name">
-                        {post.frontmatter.author.map(author => (
-                          <Link key={author.name} to={`/author/${_.kebabCase(author.name)}/`}>
+                        {post.frontmatter.author.map((author) => (
+                          <Link
+                            key={author.name}
+                            to={`/author/${_.kebabCase(author.name)}/`}
+                          >
                             {author.name}
                           </Link>
                         ))}
@@ -214,7 +249,8 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
                           {displayDatetime}
                         </time>
                         <span className="byline-reading-time">
-                          <span className="bull">&bull;</span>{post.fields.readingTime.text}
+                          <span className="bull">&bull;</span>
+                          {post.fields.readingTime.text}
                         </span>
                       </div>
                     </section>
@@ -226,8 +262,9 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
                 <PostFullImage>
                   <GatsbyImage
                     image={getImage(post.frontmatter.image)!}
-                    style={{ height: '100%' }}
-                    alt={post.frontmatter.title} />
+                    style={{ height: "100%" }}
+                    alt={post.frontmatter.title}
+                  />
                 </PostFullImage>
               )}
               <PostContent htmlAst={post.htmlAst} />
@@ -318,7 +355,7 @@ const PostFullTags = styled.section`
 const PostFullCustomExcerpt = styled.p`
   margin: 20px 0 0;
   color: var(--midgrey);
-  font-family: Georgia, serif;
+  // font-family: Georgia, serif;
   font-size: 2.3rem;
   line-height: 1.4em;
   font-weight: 300;
@@ -330,7 +367,7 @@ const PostFullCustomExcerpt = styled.p`
 
   @media (prefers-color-scheme: dark) {
     /* color: color(var(--midgrey) l(+10%)); */
-    color: ${lighten('0.1', colors.midgrey)};
+    color: ${lighten("0.1", colors.midgrey)};
   }
 `;
 
@@ -340,7 +377,7 @@ const PostFullByline = styled.div`
   margin: 35px 0 0;
   padding-top: 15px;
   /* border-top: 1px solid color(var(--lightgrey) l(+10%)); */
-  border-top: 1px solid ${lighten('0.1', colors.lightgrey)};
+  border-top: 1px solid ${lighten("0.1", colors.lightgrey)};
 
   .post-full-byline-content {
     flex-grow: 1;
@@ -356,7 +393,7 @@ const PostFullByline = styled.div`
   .post-full-byline-meta {
     margin: 2px 0 0;
     /* color: color(var(--midgrey) l(+10%)); */
-    color: ${lighten('0.1', colors.midgrey)};
+    color: ${lighten("0.1", colors.midgrey)};
     font-size: 1.2rem;
     line-height: 1.2em;
     letter-spacing: 0.2px;
@@ -372,7 +409,7 @@ const PostFullByline = styled.div`
 
   .post-full-byline-meta h4 a {
     /* color: color(var(--darkgrey) l(+10%)); */
-    color: ${lighten('0.1', colors.darkgrey)};
+    color: ${lighten("0.1", colors.darkgrey)};
   }
 
   .post-full-byline-meta h4 a:hover {
@@ -388,7 +425,7 @@ const PostFullByline = styled.div`
 
   @media (prefers-color-scheme: dark) {
     /* border-top-color: color(var(--darkmode) l(+15%)); */
-    border-top-color: ${lighten('0.15', colors.darkmode)};
+    border-top-color: ${lighten("0.15", colors.darkmode)};
 
     .post-full-byline-meta h4 a {
       color: rgba(255, 255, 255, 0.75);
@@ -402,7 +439,7 @@ const PostFullByline = styled.div`
 
 export const PostFullTitle = styled.h1`
   margin: 0 0 0.2em;
-  color: ${setLightness('0.05', colors.darkgrey)};
+  color: ${setLightness("0.05", colors.darkgrey)};
   @media (max-width: 500px) {
     margin-top: 0.2em;
     font-size: 3.3rem;
@@ -437,67 +474,70 @@ const PostFullImage = styled.figure`
   }
 `;
 
-export const query = graphql`query ($slug: String, $primaryTag: String) {
-  logo: file(relativePath: {eq: "img/ghost-logo.png"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FIXED)
-    }
-  }
-  markdownRemark(fields: {slug: {eq: $slug}}) {
-    html
-    htmlAst
-    excerpt
-    fields {
-      readingTime {
-        text
+export const query = graphql`
+  query ($slug: String, $primaryTag: String) {
+    logo: file(relativePath: { eq: "img/ghost-logo.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FIXED)
       }
     }
-    frontmatter {
-      title
-      userDate: date(formatString: "D MMMM YYYY")
-      date
-      tags
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      htmlAst
       excerpt
-      image {
-        childImageSharp {
-          gatsbyImageData(layout: FULL_WIDTH)
+      fields {
+        readingTime {
+          text
         }
       }
-      author {
-        name
-        bio
-        avatar {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, breakpoints: [40, 80, 120])
-          }
-        }
-      }
-    }
-  }
-  relatedPosts: allMarkdownRemark(
-    filter: {frontmatter: {tags: {in: [$primaryTag]}, draft: {ne: true}}}
-    limit: 5
-    sort: {fields: [frontmatter___date], order: DESC}
-  ) {
-    totalCount
-    edges {
-      node {
-        id
+      frontmatter {
+        title
+        userDate: date(formatString: "D MMMM YYYY")
+        date
+        tags
         excerpt
-        frontmatter {
-          title
-          date
-        }
-        fields {
-          readingTime {
-            text
+        image {
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH)
           }
-          slug
+        }
+        author {
+          name
+          bio
+          avatar {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, breakpoints: [40, 80, 120])
+            }
+          }
+        }
+      }
+    }
+    relatedPosts: allMarkdownRemark(
+      filter: {
+        frontmatter: { tags: { in: [$primaryTag] }, draft: { ne: true } }
+      }
+      limit: 5
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          excerpt
+          frontmatter {
+            title
+            date
+          }
+          fields {
+            readingTime {
+              text
+            }
+            slug
+          }
         }
       }
     }
   }
-}
 `;
 
 export default PageTemplate;
