@@ -3,7 +3,6 @@ import { lighten } from "polished";
 import React from "react";
 import { css } from "@emotion/react";
 import { colors } from "../styles/colors";
-import "../styles/App.css";
 
 export interface AboutMeProps {
   data: AboutMeProps;

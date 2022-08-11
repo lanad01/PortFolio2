@@ -27,7 +27,6 @@ import GlobalFont from "../styles/GlobalFont";
 import { url } from "inspector";
 import { useRef } from "react";
 import { AboutMe } from "../components/AboutMe";
-import "../styles/App.css";
 import { Skills } from "../components/Skills";
 
 export interface IndexProps {
