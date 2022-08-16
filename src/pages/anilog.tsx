@@ -48,11 +48,18 @@ function Anilog() {
           </a>
         </div>
         <div className="line" style={{ marginTop: "30px" }}></div>
+        <div className="duration">직접 구현한 화면 예시</div>
         <div className="gif">
           <div className="login"></div>
           <div className="feedProfileHome"></div>
           <div className="feedWrite"></div>
-          <div className="profile"></div>
+          <div className="Location"></div>
+        </div>
+        <div className="gif">
+          <div className="modal"></div>
+          <div className="Community"></div>
+          <div className="CommWrite"></div>
+          <div className="Search"></div>
         </div>
         <div className="line" style={{ marginTop: "20px" }}></div>
         <div className="contribution">프로젝트 기여 요소</div>

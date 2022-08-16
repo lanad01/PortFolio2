@@ -157,6 +157,46 @@ body {
   border-radius: 30px;
   background-repeat: no-repeat;
 }
+.modal {
+  background-image: url("../assets/image/modal.gif");
+  background-size: 100%;
+  width: 260px;
+  height: 574px;
+  border-radius: 30px;
+  background-repeat: no-repeat;
+}
+.Community {
+  background-image: url("../assets/image/Community1.gif");
+  background-size: 100%;
+  width: 260px;
+  height: 574px;
+  border-radius: 30px;
+  background-repeat: no-repeat;
+}
+.CommWrite {
+  background-image: url("../assets/image/CommWrite.gif");
+  background-size: 100%;
+  width: 260px;
+  height: 574px;
+  border-radius: 30px;
+  background-repeat: no-repeat;
+}
+.Search {
+  background-image: url("../assets/image/Search.gif");
+  background-size: 100%;
+  width: 260px;
+  height: 574px;
+  border-radius: 30px;
+  background-repeat: no-repeat;
+}
+.Location {
+  background-image: url("../assets/image/Location.gif");
+  background-size: 100%;
+  width: 260px;
+  height: 574px;
+  border-radius: 30px;
+  background-repeat: no-repeat;
+}
 .contribution {
   text-align: left;
   margin-bottom: 20px;
