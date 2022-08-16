@@ -127,7 +127,10 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                     참여 프로젝트
                   </div>
                 </li>
-                <Link style={{ marginLeft: "20px" }} to={"https://github.com/"}>
+                <Link
+                  style={{ marginLeft: "20px" }}
+                  to={"https://github.com/lanad01"}
+                >
                   <img
                     style={{
                       width: "50px",
