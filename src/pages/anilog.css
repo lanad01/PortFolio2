@@ -18,19 +18,14 @@
   font-size: 50px;
   font-family: OSeongandHanEum;
 }
-body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
+.cont {
+  max-width: 1500px;
+  display: inline-block;
+  vertical-align: middle;
 }
 .container {
-  /* width: 1400px; */
   padding: 0 50px 0 50px;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -40,7 +35,6 @@ body {
   position: absolute;
   left: 0;
   width: 100px;
-  margin-left: 60px;
 }
 .main {
   align-items: center;
@@ -48,6 +42,9 @@ body {
   align-content: center;
   text-align: center;
   margin-top: 30px;
+  max-width: 1500px;
+  display: inline-block;
+  vertical-align: middle;
 }
 .gitCont {
   text-align: left;
@@ -284,55 +281,4 @@ li {
   -moz-animation: fadeout1 0.5s; /* Firefox */
   -webkit-animation: fadeout1 0.5s; /* Safari and Chrome */
   -o-animation: fadeout1 0.5s; /* Opera */
-}
-@keyframes fadeout1 {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.8;
-  }
-}
-@-moz-keyframes fadeout1 {
-  /* Firefox */
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.8;
-  }
-}
-@-webkit-keyframes fadeout1 {
-  /* Safari and Chrome */
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.8;
-  }
-}
-@-o-keyframes fadeout1 {
-  /* Opera */
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0.8;
-  }
-}
-
-@media (max-width: 576px) {
-  .Skill_image_container {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-  }
-  .Skill_label {
-    width: 84px;
-    height: 84px;
-  }
 }

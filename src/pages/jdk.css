@@ -20,7 +20,11 @@
   font-size: 60px;
   margin-top: 60px;
 }
-
+.cont {
+  max-width: 1500px;
+  display: inline-block;
+  vertical-align: middle;
+}
 .line {
   width: "100%";
   height: 5px;
@@ -61,6 +65,9 @@ body {
   align-content: center;
   text-align: center;
   margin-top: 30px;
+  max-width: 1500px;
+  display: inline-block;
+  vertical-align: middle;
 }
 .gitCont {
   text-align: left;
