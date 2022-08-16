@@ -8,13 +8,11 @@ import { colors } from "./colors";
 
 export const outer = css`
   position: relative;
-  padding: 0 5vw;
+  // padding: 0 5vw;
 `;
 
 // Centered content container blocks
 export const inner = css`
-  margin: 0 auto;
-  max-width: 1040px;
   width: 100%;
 `;
 
@@ -134,10 +132,10 @@ export const SiteHeaderContent = styled.div`
 export const SiteHeaderStyles = css`
   position: relative;
   /* margin-top: 64px; */
-  padding-bottom: 12px;
+  // padding-bottom: 12px;
   color: #fff;
   /* background: color(var(--darkgrey) l(-5%)) no-repeat center center; */
-  background: ${lighten("-0.05", colors.darkgrey)} no-repeat center center;
+  // background: ${lighten("-0.05", colors.darkgrey)} no-repeat center center;
   background-size: cover;
 
   :before {

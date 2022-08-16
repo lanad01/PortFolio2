@@ -6,28 +6,16 @@ import { css } from "@emotion/react";
 import { Footer } from "../components/Footer";
 import SiteNav from "../components/header/SiteNav";
 import Pagination from "../components/Pagination";
-import { PostCard } from "../components/PostCard";
 import { Wrapper } from "../components/Wrapper";
 import IndexLayout from "../layouts";
-import {
-  inner,
-  outer,
-  PostFeed,
-  Posts,
-  SiteHeader,
-  SiteMain,
-  SiteHeaderStyles,
-  intro,
-} from "../styles/shared";
+import { intro } from "../styles/shared";
 import config from "../website-config";
 import { PageContext } from "./post";
-import { cont } from "../content/cont";
-import { CustomPost } from "../components/CustomPost";
-import GlobalFont from "../styles/GlobalFont";
-import { url } from "inspector";
 import { useRef } from "react";
 import { AboutMe } from "../components/AboutMe";
 import { Skills } from "../components/Skills";
+import "../styles/app.css";
+import { Projects } from "../components/Projects";
 
 export interface IndexProps {
   children: React.ReactNode;
@@ -50,15 +38,28 @@ function IndexPage(props: IndexProps) {
   const width = getImage(props.data.header)?.width;
   const height = getImage(props.data.header)?.height;
 
+  const topRef = useRef<null | HTMLDivElement>(null);
   const aboutRef = useRef<null | HTMLDivElement>(null);
   const skillRef = useRef<null | HTMLDivElement>(null);
+  const projectRef = useRef<null | HTMLDivElement>(null);
 
   const onClick = (e: string) => {
     if (e == "about") {
       aboutRef.current?.scrollIntoView({ behavior: "smooth" });
     } else if (e == "skills") {
       skillRef.current?.scrollIntoView({ behavior: "smooth" });
+    } else if (e == "home") {
+      topRef.current?.scrollIntoView({ behavior: "auto" });
+    } else if (e == "project") {
+      projectRef.current?.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const toTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -103,51 +104,34 @@ function IndexPage(props: IndexProps) {
         <meta property="og:image:height" content={height?.toString()} />
       </Helmet>
       <Wrapper className="App">
-        <div
-          css={[outer, SiteHeader, SiteHeaderStyles]}
-          className="site-header-background"
-          style={{
-            backgroundImage: `url('${getSrc(props.data.header)}')`,
-          }}
-        >
-          <div css={inner}>
-            <SiteNav isHome onClick={onClick} />
-            {/* <SiteHeaderContent className="site-header-content">
+        {/* <SiteHeaderContent className="site-header-content">
               <SiteTitle className="site-title"></SiteTitle>
               {/* <SiteDescription>{config.description}</SiteDescription> */}
-            {/* </SiteHeaderContent> */}
-          </div>
-        </div>
+        {/* </SiteHeaderContent> */}
         <div
           css={intro}
           className="multi-bg-example"
           style={styles.intro_photo}
+          ref={topRef}
         >
           <div css={intro} style={styles.intro} className="multi-bg-example2">
+            <SiteNav isHome onClick={onClick} />
+
             <h1 style={styles.intro_text}>
               신입 개발자 권상우의 포트폴리오 페이지
             </h1>
           </div>
         </div>
-        <div ref={aboutRef}>
+        <div ref={aboutRef} id="c" style={{}}>
           <AboutMe />
         </div>
         <div ref={skillRef}>
           <Skills />
         </div>
-        <main
-          id="site-main"
-          css={[SiteMain, outer]}
-          style={{ backgroundColor: "black" }}
-        >
-          <div css={[inner, Posts]} style={{ backgroundColor: "black" }}>
-            <div css={[PostFeed]} style={{ backgroundColor: "black" }}>
-              {cont.map((v, i) => {
-                return <CustomPost data={v} />;
-              })}
-            </div>
-          </div>
-          {/* <div css={[inner, Posts]}>
+        <div ref={projectRef} style={{ backgroundColor: "black" }}>
+          <Projects />
+        </div>
+        {/* <div css={[inner, Posts]}>
             <div css={[PostFeed]}>
               {props.data.allMarkdownRemark.edges.map(
                 (post, index) =>
@@ -159,7 +143,6 @@ function IndexPage(props: IndexProps) {
               )}
             </div>
           </div> */}
-        </main>
 
         {props.children}
         {props.pageContext.numPages > 1 && (
@@ -169,7 +152,7 @@ function IndexPage(props: IndexProps) {
           />
         )}
 
-        <Footer />
+        <Footer toTop={toTop} />
       </Wrapper>
     </IndexLayout>
   );
@@ -179,21 +162,24 @@ const styles = {
   intro_photo: {
     width: "100%",
     height: "800px",
+    backgroundSize: "cover",
+    // overflow: "hidden",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
     background:
-      "url(https://dt40dm21pj8em.cloudfront.net/uploads/froala/file/3822/%EA%B0%9C%EB%B0%9C%EC%9E%90%20%EC%B7%A8%EC%97%851.jpg) no-repeat , linear-gradient(135deg, #50A684 90%, #115E67 50%)",
+      "url(https://dt40dm21pj8em.cloudfront.net/uploads/froala/file/6718/개발자%20취업%201.jpg) ",
   },
-
   intro: {
     width: "100%",
     height: "800px",
     backgroundColor: "black",
-    background: "rgba(0,0,0,.6)",
+    background: "rgba(0,0,0,0.4)",
     justifyContent: "center",
     alignItems: "center",
     verticalAlign: "center",
     textAlign: "center",
     position: "absolute",
-    zIndex: 0,
+    zIndex: 1000,
   },
   intro_text: {
     color: "white",

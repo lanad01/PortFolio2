@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import { Link } from "gatsby";
 import _ from "lodash";
 import { lighten } from "polished";
@@ -6,9 +5,7 @@ import React from "react";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { colors } from "../styles/colors";
-import GlobalStyle from "../styles/GlobalStyle";
-import { Font } from "../styles/shared";
-
+import "./CustomPost.css";
 export interface CustomPostProps {
   data: CustomProps;
 }
@@ -26,34 +23,21 @@ export interface CustomProps {
 }
 
 export const CustomPost = ({ data }: CustomPostProps) => {
-  const date = new Date(data.date);
-  const datetime = format(date, "yyyy-MM-dd");
-  const displayDatetime = format(date, "dd LLL yyyy");
   return (
-    <article css={[PostCardStyles]}>
+    <article className="PostCardStyles">
       <Link to={data.to}>
-        <img src={data.imgUri} style={{ width: "300px", height: "200px" }} />
+        <img src={data.imgUri} style={{ width: "400px", height: "300px" }} />
       </Link>
-      <Link
-        className="post-card-content-link"
-        css={PostCardContentLink}
-        to={data.to}
-      >
-        <PostCardHeader className="post-card-header">
-          <h4 css={[PostCardExcerpt]} style={{ color: "#fff" }}>
-            {data.title}
-          </h4>
-          <PostCardTitle css={NoImage} className="post-card-title">
-            {data.subTitle}
-          </PostCardTitle>
-        </PostCardHeader>
-      </Link>
-      <PostCardExcerpt className="post-card-excerpt">
-        <p>{data.excerpt || data.excerpt}</p>
-      </PostCardExcerpt>
-      <time dateTime={datetime} style={{ color: "white" }}>
-        {displayDatetime}
-      </time>{" "}
+      {/* <Link className="post-card-content-link" to={data.to}></Link> */}
+      <h4 style={{ color: "#fff", fontSize: "20px", marginBottom: "-20px" }}>
+        {data.title}
+      </h4>
+      <h4 style={{ color: "#fff", fontSize: "20px", marginBottom: "-20px" }}>
+        {data.subTitle}
+      </h4>
+      <h4 style={{ color: "#fff", fontSize: "20px", marginBottom: "-20px" }}>
+        {data.date}
+      </h4>
     </article>
   );
 };
@@ -67,13 +51,17 @@ const PostCardStyles = css`
   padding: 0 20px 40px;
   min-height: 220px;
   background-size: cover;
+  .date {
+    font-size: 20px;
+    color: white;
+  }
 `;
 
 const NoImage = css`
   position: relative;
   display: block;
   color: white;
-  font-size: 16px;
+  font-size: 20px;
   :hover {
     text-decoration: none;
   }
@@ -159,7 +147,6 @@ const PostCardContentLink = css`
   display: block;
   /* color: var(--darkgrey); */
   color: ${colors.darkgrey};
-
   :hover {
     text-decoration: none;
   }
@@ -196,14 +183,7 @@ const PostCardTitle = styled.h2`
   }
 `;
 
-const PostCardExcerpt = styled.section`
-  font-family: "Jua-Regular";
-
-  @media (prefers-color-scheme: dark) {
-    /* color: color(var(--midgrey) l(+10%)); */
-    color: ${lighten("0.1", colors.midgrey)} !important;
-  }
-`;
+const PostCardExcerpt = styled.css``;
 
 const PostCardMeta = styled.footer`
   display: flex;

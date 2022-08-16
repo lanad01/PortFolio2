@@ -6,11 +6,6 @@ import { colors } from "../styles/colors";
 import "./Skills.css";
 import Simage from "./SImage";
 
-export interface SkillsProps {
-  data: SkillsProps;
-}
-export interface SkillsProps {}
-
 export const imgUri = {
   JS: "https://blog.kakaocdn.net/dn/bd3qHy/btqURulLcRv/6lJaF5KICc3Ev1gWb84XqK/img.png",
   CSS: "https://weaklion.github.io/React-PortFolio/static/media/css.faae11a6.png",
@@ -31,7 +26,7 @@ export const imgUri = {
   JQ: "https://t1.daumcdn.net/cfile/tistory/2541853857EA02BC16",
 };
 
-export const Skills = ({}: SkillsProps) => {
+export const Skills = () => {
   return (
     <div className="Skill" id="s">
       <h1 className="" style={{ paddingTop: "20px" }}>

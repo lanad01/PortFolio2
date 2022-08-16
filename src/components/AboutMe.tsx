@@ -4,12 +4,7 @@ import React from "react";
 import { css } from "@emotion/react";
 import { colors } from "../styles/colors";
 
-export interface AboutMeProps {
-  data: AboutMeProps;
-}
-export interface AboutMeProps {}
-
-export const AboutMe = ({}: AboutMeProps) => {
+export const AboutMe = () => {
   return (
     <article css={[AboutMeStyles]}>
       <div css={[LeftBox]}>
@@ -48,9 +43,9 @@ const RightIntro = css`
 
 const AboutMeStyles = css`
   display: flex;
-  position: relative;
+  // position: relative;
   overflow: hidden;
-  padding: 40px 0px 0px 40px;
+  padding: 80px 0px 80px 40px;
   min-height: 350px;
   background-size: cover;
   background-color: #eeeee4;

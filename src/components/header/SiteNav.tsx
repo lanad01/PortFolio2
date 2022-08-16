@@ -12,12 +12,13 @@ import { Facebook } from "../icons/facebook";
 import { Twitter } from "../icons/twitter";
 import { SubscribeModal } from "../subscribe/SubscribeModal";
 import { SiteNavLogo } from "./SiteNavLogo";
+import "./Header.css";
 
 interface SiteNavProps {
   isHome?: boolean;
   isPost?: boolean;
   post?: any;
-  onClick?: void;
+  onClick?: (e: string) => void;
 }
 
 interface SiteNavState {
@@ -87,6 +88,11 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
       border: "1px solid white",
       borderRadius: "30px",
       marginLeft: "20px",
+      color: "white",
+      height: "40px",
+      width: "40px",
+      marginTop: "10px",
+      textAlign: "center",
     };
     const onClick = (e: any) => {
       this.props.onClick(e);
@@ -99,12 +105,10 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
           <SiteNavLeft className="site-nav-left">
             {/* {!isHome && <SiteNavLogo />} */}
             <SiteNavContent css={[this.state.showTitle ? HideNav : ""]}>
-              <ul css={NavStyles} role="menu">
-                <li role="" style={style}>
-                  <div onClick={() => onClick("home")}>
-                    <Link to="/" activeClassName="nav-current">
-                      SW
-                    </Link>
+              <ul css={NavStyles} style={{ zIndex: 1000 }} role="menu">
+                <li role="menuitem">
+                  <div onClick={() => onClick("home")} css={item}>
+                    Home
                   </div>
                 </li>
                 <li role="menuitem" style={{}}>
@@ -118,12 +122,12 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   </div>
                 </li>
                 <li role="menuitem">
-                  <div onClick={() => onClick("about")} css={item}>
+                  <div onClick={() => onClick("project")} css={item}>
                     참여 프로젝트
                   </div>
                 </li>
 
-                <li role="menuitem">
+                {/* <li role="menuitem">
                   <Link
                     to="https://lanad.tistory.com/"
                     activeClassName="nav-current"
@@ -131,7 +135,6 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   >
                     T-Story
                   </Link>
-                  {/* <div css={item}>T-Story</div> */}
                 </li>
                 <li role="menuitem">
                   <Link
@@ -140,7 +143,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   >
                     GitHub
                   </Link>
-                </li>
+                </li> */}
               </ul>
               {isPost && (
                 <NavPostTitle ref={this.titleRef} className="nav-post-title">
@@ -176,9 +179,9 @@ const SiteNavStyles = css`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  overflow-y: hidden;
+  // overflow-y: hidden;
   height: 64px;
-  font-size: 1.3rem;
+  font-size: 1.9rem;
   font-family: none;
 `;
 
@@ -186,13 +189,13 @@ const SiteNavLeft = styled.div`
   flex: 1 0 auto;
   display: flex;
   align-items: center;
-  overflow-x: auto;
-  overflow-y: hidden;
+  // overflow-x: auto;
+  // overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  margin-right: 10px;
-  padding: 10px 0 80px;
+  // margin-right: 10px;
+  // padding: 0px 10px 80px;
   font-weight: 500;
-  letter-spacing: 0.2px;
+  // letter-spacing: 0.2px;
   text-transform: uppercase;
   white-space: nowrap;
 
@@ -212,20 +215,25 @@ const SiteNavContent = styled.div`
 const item = css`
   position: relative;
   display: block;
-  padding: 12px 12px;
+  padding: 16px 12px;
   color: #fff;
   transition: opacity 0.35s ease-in-out;
+  // font-family: serif;
+  font-family: Roboto;
+  cursor: pointer;
 `;
 
 const NavStyles = css`
-  position: absolute;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 64px;
   z-index: 1000;
   display: flex;
-  margin: 0 0 0 -12px;
-  padding: 0;
+  margin: 0px 0px 0px 0px;
+  padding-right: 20px;
   list-style: none;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
-
   li {
     display: block;
     margin: 0;
