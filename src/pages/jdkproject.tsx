@@ -28,9 +28,8 @@ function Jdkproject() {
           JDK(Japan Developer Korean) <br />
           재일(在日) 한국인 개발자 정보 공유 커뮤니티 사이트
         </div>
-        <div className="intro">
-          ------------------------------------------------
-        </div>
+        <div className="line" style={{ marginTop: "30px" }}></div>
+
         <div className="duration">개발 기간 : 2020.07.29 ~ 2020.09.12 </div>
         <div className="duration">담당 : 개인프로젝트 </div>
         <div className="skill">
@@ -46,9 +45,8 @@ function Jdkproject() {
             https://github.com/lanad01/JDKProject{" "}
           </a>
         </div>
-        <div className="intro" style={{ marginTop: "30px" }}>
-          ------------------------------------------------
-        </div>
+        <div className="line" style={{ marginTop: "30px" }}></div>
+
         <div className="video">
           <iframe
             src="https://www.youtube.com/embed/G9suxlXPZbA"
@@ -56,9 +54,8 @@ function Jdkproject() {
             height="440px"
           ></iframe>
         </div>
-        <div className="intro" style={{ marginTop: "20px" }}>
-          ------------------------------------------------
-        </div>
+        <div className="line" style={{ marginTop: "30px" }}></div>
+
         <div className="contribution">ERD </div>
         <div className="contribution_list">
           <img src={ERD} width="100%" />

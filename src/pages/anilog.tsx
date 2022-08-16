@@ -29,9 +29,7 @@ function Anilog() {
         <div className="intro">
           동물을 사랑하는 사람들을 위한 SNS 및 유기 동물 보호 관리 플랫폼 앱
         </div>
-        <div className="intro">
-          ------------------------------------------------
-        </div>
+        <div className="line"></div>
         <div className="duration">
           개발 참여 기간 : 2021.10.14 ~ 2022.08.14{" "}
         </div>
@@ -49,18 +47,14 @@ function Anilog() {
             https://github.com/newddong/anilog2
           </a>
         </div>
-        <div className="intro" style={{ marginTop: "30px" }}>
-          ------------------------------------------------
-        </div>
+        <div className="line" style={{ marginTop: "30px" }}></div>
         <div className="gif">
           <div className="login"></div>
           <div className="feedProfileHome"></div>
           <div className="feedWrite"></div>
           <div className="profile"></div>
         </div>
-        <div className="intro" style={{ marginTop: "20px" }}>
-          ------------------------------------------------
-        </div>
+        <div className="line" style={{ marginTop: "20px" }}></div>
         <div className="contribution">프로젝트 기여 요소</div>
         <div className="contribution_list">
           <li>Atomic 컴포넌트 개발 방식에 맞춰 기초 컴포넌트 개발 담당</li>

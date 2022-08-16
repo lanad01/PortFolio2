@@ -26,11 +26,7 @@ function Todo() {
   };
 
   const line = () => {
-    return (
-      <div className="intro" style={{ marginTop: "30px" }}>
-        ------------------------------------------------
-      </div>
-    );
+    return <div className="line" style={{ marginTop: "30px" }}></div>;
   };
 
   const process = (src: string, txt: string) => {
@@ -84,20 +80,16 @@ function Todo() {
           {process(Assign2, "회원가입-2")}
           {process(Assign3, "회원가입-3")}
         </div>
-        <div style={{ color: "gray" }}>
-          --------------------------------------------------------------------
-          --
-        </div>
+        <div className="line" style={{ marginTop: "30px" }}></div>
+
         <div className="process_cont">
           {process(TodoProfile, "프로필")}
           {process(TodoProfileEdit, "프로필 수정")}
           {process(Photo1, "사진 변경")}
           {process(PwdCh, "비밀번호 변경")}
         </div>
-        <div style={{ color: "gray" }}>
-          --------------------------------------------------------------------
-          --
-        </div>
+        <div className="line" style={{ marginTop: "30px" }}></div>
+
         <div className="process_cont">
           {process(TaskAni, "Task 가이드")}
           {process(Task1, "Task 탭 메인화면")}
