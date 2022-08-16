@@ -127,7 +127,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                     참여 프로젝트
                   </div>
                 </li>
-                <Link to={"https://github.com/"}>
+                <Link style={{ marginLeft: "20px" }} to={"https://github.com/"}>
                   <img
                     style={{
                       width: "50px",
@@ -136,11 +136,15 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                       borderRadius: "40px",
                       marginTop: "5px",
                       marginLeft: "10px",
+                      padding: "4px",
                     }}
-                    src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                    src="https://cdn-icons-png.flaticon.com/512/1051/1051377.png"
                   ></img>
                 </Link>
-                <Link to={"https://lanad.tistory.com/"}>
+                <Link
+                  style={{ marginLeft: "20px" }}
+                  to={"https://lanad.tistory.com/"}
+                >
                   <img
                     style={{
                       width: "50px",
