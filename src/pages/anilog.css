@@ -14,54 +14,29 @@
   font-weight: normal;
   font-style: normal;
 }
-.intro_text {
-  font-size: 50px;
-  font-family: OSeongandHanEum;
-}
 .cont {
-  max-width: 1500px;
   display: inline-block;
   vertical-align: middle;
+  max-width: 1500px;
 }
 .container {
-  padding: 0 50px 0 50px;
+  padding: 0 20vh 0 20vh;
   position: absolute;
   justify-content: center;
   align-items: center;
   align-content: center;
   text-align: center;
-}
-.home {
-  position: absolute;
-  left: 0;
-  width: 100px;
-}
-.main {
-  align-items: center;
-  width: 100%;
-  align-content: center;
-  text-align: center;
-  margin-top: 30px;
-  max-width: 1500px;
-  display: inline-block;
-  vertical-align: middle;
 }
 .gitCont {
   text-align: left;
   display: flex;
   margin-bottom: 10px;
 }
-.git {
-  width: 40px;
-  height: 40px;
-  /* background-color: white; */
+#git {
+  width: 6vw;
+  height: 6vh;
   align-self: flex-start;
   text-align: left;
-}
-.triCont {
-  text-align: center;
-  display: flex;
-  justify-content: center;
 }
 .line {
   width: "100%";
@@ -69,216 +44,209 @@
   margin-bottom: 20px;
   background-color: lightgray;
 }
-.triangle {
-  width: 0px;
-  height: 0px;
-  border-bottom: 30px solid black;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-}
-.ballon_01 {
-  position: relative;
-  padding: 50px;
-  margin-top: 20px;
-  background: white;
-  border-radius: 50px;
-  font-size: 2.4em;
-  font-weight: 400;
-  color: black;
-  border-style: double;
-  border-color: black;
-  border-width: 10px;
-}
+
 .intro {
-  margin-bottom: 20px;
-  font-family: samlip;
-  font-size: 1.2em;
-}
-.duration {
-  font-family: samlip;
-  font-size: 0.9em;
-  margin-bottom: 20px;
-  color: black;
-  text-align: left;
-}
-.skill {
-  font-family: samlip;
-  color: black;
-  font-size: 0.7em;
-  margin-bottom: 20px;
-  text-align: left;
-}
-.gitText {
-  font-family: samlip;
-  color: black;
-  font-size: 0.7em;
-  margin-left: 10px;
-  margin-top: 8px;
   /* margin-bottom: 20px; */
+}
+
+#skill {
+  font-family: samlip;
+  color: black;
+  font-size: 1.3rem;
+  margin-bottom: 2vh;
   text-align: left;
 }
-.gif {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
+
+@media all {
+  html {
+    font-size: 15px;
+  }
+  #logo {
+    width: 40vh;
+  }
+  .gif {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .home {
+    width: 9%;
+    height: 6%;
+  }
+  #gif {
+    background-size: 100%;
+    width: 16vw;
+    height: 68vh;
+    border-radius: 2vw;
+    background-repeat: no-repeat;
+  }
+  .main {
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    margin-top: 30px;
+    /* max-width: 1500px; */
+    display: inline-block;
+    vertical-align: middle;
+  }
+  #ballon_01 {
+    position: relative;
+    padding: 6vw;
+    margin-top: 20px;
+    background: white;
+    border-radius: 50px;
+    font-size: 2.4em;
+    font-weight: 400;
+    color: black;
+    border-style: double;
+    border-color: black;
+    border-width: 10px;
+    width: 80vw;
+  }
+  #intro {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    /* font-family: samlip; */
+  }
+  #duration {
+    font-family: samlip;
+    font-size: 1.9rem;
+    margin-bottom: 20px;
+    color: black;
+    text-align: left;
+  }
+
+  #gitText {
+    /* font-family: samlip; */
+    color: black;
+    font-size: 1.3rem;
+    margin-left: 2vw;
+    margin-top: 2vh;
+    /* margin-bottom: 20px; */
+    text-align: left;
+  }
+
+  #contribution {
+    text-align: left;
+    margin-bottom: 20px;
+    font-family: samlip;
+    font-size: 1.7rem;
+  }
+  #contribution_list {
+    text-align: left;
+    margin-bottom: 20px;
+    font-family: OSeongandHanEum;
+    font-size: 1.5rem;
+  }
+  #list {
+    margin-bottom: 10px;
+    font-size: 1.7rem;
+  }
 }
+
+@media screen and (max-width: 576px) {
+  #logo {
+    width: 20vh;
+  }
+  .home {
+    height: 0;
+  }
+  .main {
+    align-items: center;
+    margin-top: 30vh;
+  }
+  .gif {
+    margin-top: 20vh;
+    height: 16vh;
+    display: flex;
+    justify-content: space-between;
+  }
+  #gif {
+    background-size: 100%;
+    width: 16vw;
+    height: 54vh;
+    border-radius: 2vh;
+    background-repeat: no-repeat;
+  }
+  #intro {
+    margin-bottom: 5vw;
+    font-size: 0.5em;
+    /* font-family: samlip; */
+  }
+  #ballon_01 {
+    position: relative;
+    padding: 5vw;
+    margin-top: 20px;
+    background: white;
+    border-radius: 50px;
+    font-size: 2.4em;
+    font-weight: 400;
+    color: black;
+    border-style: double;
+    border-color: black;
+    border-width: 10px;
+    width: 68vw;
+  }
+  #duration {
+    font-family: samlip;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: black;
+    text-align: left;
+  }
+  #gitText {
+    /* font-family: samlip; */
+    color: black;
+    font-size: 1.2rem;
+    margin-left: 2vw;
+    margin-top: 2vh;
+    /* margin-bottom: 20px; */
+    text-align: left;
+  }
+  #contribution {
+    text-align: left;
+    margin-bottom: 20px;
+    font-family: samlip;
+    font-size: 1.2rem;
+  }
+  #contribution_list {
+    text-align: left;
+    margin-bottom: 2vh;
+    font-family: OSeongandHanEum;
+    font-size: 0.75rem;
+  }
+  #list {
+    margin-bottom: 10px;
+  }
+}
+
 .profile {
   background-image: url("../assets/image/profile.gif");
-  background-size: 100%;
-  width: 260px;
-  height: 574px;
-  border-radius: 30px;
-  background-repeat: no-repeat;
 }
 .feedProfileHome {
   background-image: url("../assets/image/feedProfileHome.gif");
-  background-size: 100%;
-  width: 260px;
-  height: 574px;
-  border-radius: 30px;
-  background-repeat: no-repeat;
 }
 .feedWrite {
   background-image: url("../assets/image/feedWrite.gif");
-  background-size: 100%;
-  width: 260px;
-  height: 574px;
-  border-radius: 30px;
-  background-repeat: no-repeat;
 }
 .login {
   background-image: url("../assets/image/login.gif");
-  background-size: 100%;
-  width: 260px;
-  height: 574px;
-  border-radius: 30px;
-  background-repeat: no-repeat;
 }
 .modal {
   background-image: url("../assets/image/modal.gif");
-  background-size: 100%;
-  width: 260px;
-  height: 574px;
-  border-radius: 30px;
-  background-repeat: no-repeat;
 }
 .Community {
   background-image: url("../assets/image/Community1.gif");
-  background-size: 100%;
-  width: 260px;
-  height: 574px;
-  border-radius: 30px;
-  background-repeat: no-repeat;
 }
 .CommWrite {
   background-image: url("../assets/image/CommWrite.gif");
-  background-size: 100%;
-  width: 260px;
-  height: 574px;
-  border-radius: 30px;
-  background-repeat: no-repeat;
 }
 .Search {
   background-image: url("../assets/image/Search.gif");
-  background-size: 100%;
-  width: 260px;
-  height: 574px;
-  border-radius: 30px;
-  background-repeat: no-repeat;
 }
 .Location {
   background-image: url("../assets/image/Location.gif");
-  background-size: 100%;
-  width: 260px;
-  height: 574px;
-  border-radius: 30px;
-  background-repeat: no-repeat;
-}
-.contribution {
-  text-align: left;
-  margin-bottom: 20px;
-  font-family: samlip;
-  font-size: 1em;
 }
 li {
   margin-top: 10px;
-}
-.contribution_list {
-  text-align: left;
-  margin-bottom: 20px;
-  font-family: OSeongandHanEum;
-  font-size: 0.7em;
-}
-.list {
-  margin-bottom: 10px;
-}
-.Skill {
-  height: 100%;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background: rgb(231, 230, 230);
-}
-.Skill_Heeding {
-  font-family: "Noto Sans KR", sans-serif;
-  position: relative;
-  display: inline-block;
-  font-size: 2.4em;
-  font-weight: 400;
-  z-index: -5;
-
-  margin: 30px 0;
-}
-.Skill_Heeding::after {
-  position: absolute;
-  z-index: -5;
-  content: "";
-  top: 100%;
-  height: 2px;
-  width: 30px;
-  left: 0;
-  right: 70%;
-  margin: 0 auto;
-  background: rgb(253, 198, 198);
-}
-.Skill_image_container {
-  text-align: center;
-  display: inline-block;
-  width: 114px;
-  height: 116px;
-  border-radius: 30px 30px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-right: 2rem;
-  position: relative;
-  z-index: 0;
-
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-.Skill_label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: black;
-  border-radius: 30px 30px;
-  width: 114px;
-  height: 116px;
-  padding: 10px;
-  opacity: 0.8;
-  font-weight: 400;
-  font-size: 20px;
-  color: white;
-  visibility: hidden;
-  z-index: 0;
-}
-
-.Skill_image_container:hover .Skill_label {
-  visibility: visible;
-  animation: fadeout1 0.5s;
-  -moz-animation: fadeout1 0.5s; /* Firefox */
-  -webkit-animation: fadeout1 0.5s; /* Safari and Chrome */
-  -o-animation: fadeout1 0.5s; /* Opera */
 }

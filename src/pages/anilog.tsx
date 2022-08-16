@@ -20,58 +20,56 @@ function Anilog() {
             className="home"
           />
         </Link>
-        <img src="https://i.imgur.com/sUz3Huy.png" width="250px"></img>
+        <img src="https://i.imgur.com/sUz3Huy.png" id="logo"></img>
       </div>
       <div className="cont">
-        <div className="ballon_01" style={{}}>
-          <div className="intro">
+        <div id="ballon_01">
+          <div id="intro" className="intro">
             동물을 사랑하는 사람들을 위한 SNS 및 유기 동물 보호 관리 플랫폼 앱
           </div>
           <div className="line"></div>
-          <div className="duration">
-            개발 참여 기간 : 2021.10.14 ~ 2022.08.14{" "}
-          </div>
-          <div className="duration">담당 : 프론트엔드 </div>
-          <div className="skill">
+          <div id="duration">개발 참여 기간 : 2021.10.14 ~ 2022.08.14 </div>
+          <div id="duration">담당 : 프론트엔드 </div>
+          <div id="skill">
             #JavaScript &nbsp; #ReactNative &nbsp; #MongoDB &nbsp; #AWS &nbsp;
             #VS Code &nbsp; #macOS &nbsp; #GitHub
           </div>
           <div className="gitCont">
             <img
-              className="git"
+              id="git"
               src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
             />
-            <a className="gitText" href="https://github.com/newddong/anilog2">
-              https://github.com/newddong/anilog2
+            <a id="gitText" href="https://github.com/newddong/anilog2">
+              : https://github.com/newddong/anilog2
             </a>
           </div>
-          <div className="line" style={{ marginTop: "30px" }}></div>
-          <div className="duration">직접 구현한 화면 예시</div>
+          <div className="line" style={{ marginTop: "5vh" }}></div>
+          <div id="duration">직접 구현한 화면 예시</div>
           <div className="gif">
-            <div className="login"></div>
-            <div className="feedProfileHome"></div>
-            <div className="feedWrite"></div>
-            <div className="Location"></div>
+            <div id="gif" className="login"></div>
+            <div id="gif" className="feedProfileHome"></div>
+            <div id="gif" className="feedWrite"></div>
+            <div id="gif" className="Location"></div>
           </div>
           <div className="gif">
-            <div className="modal"></div>
-            <div className="Community"></div>
-            <div className="CommWrite"></div>
-            <div className="Search"></div>
+            <div id="gif" className="modal"></div>
+            <div id="gif" className="Community"></div>
+            <div id="gif" className="CommWrite"></div>
+            <div id="gif" className="Search"></div>
           </div>
-          <div className="line" style={{ marginTop: "20px" }}></div>
-          <div className="contribution">프로젝트 기여 요소</div>
-          <div className="contribution_list">
+          <div className="line" style={{ marginTop: "5vh" }}></div>
+          <div id="contribution">프로젝트 기여 요소</div>
+          <div id="contribution_list">
             <li>Atomic 컴포넌트 개발 방식에 맞춰 기초 컴포넌트 개발 담당</li>
             <li>프론트엔드 기능 구현(동물보호, 커뮤니티, 프로필 홈, 댓글)</li>
             <li> 구글 API, 주소 API 등을 토대로 위치 및 지도 기능 개발</li>
             <li>무한 스크롤 리스트 아이템의 렌더링 최적화(Flatlist) </li>
             <li> 네비게이션 동작 최적화 </li>
           </div>
-          <div className="contribution" style={{ marginTop: "40px" }}>
+          <div id="contribution" style={{ marginTop: "2vh" }}>
             주요 활용 라이브러리
           </div>
-          <div className="contribution_list">
+          <div id="contribution_list">
             {library(
               "https://github.com/bernard-kms/react-daum-postcode",
               "react-daum-postcode"

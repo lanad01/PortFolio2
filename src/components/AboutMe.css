@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:100");
+@import url("https://fonts.googleapis.com/css?family=Roboto:500");
+@font-face {
+  font-family: "this_is_font_name";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "OSeongandHanEum";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OSeongandHanEum.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.AboutMeStyles {
+  display: flex;
+  overflow: hidden;
+  padding: 80px 0px 80px 40px;
+  min-height: 350px;
+  background-size: cover;
+  background-color: #eeeee4;
+}
+
+@media all {
+  .AboutMeStyles {
+    display: flex;
+    overflow: hidden;
+    padding: 80px 40px 80px 40px;
+    min-height: 350px;
+    background-size: cover;
+    background-color: palegreen;
+  }
+  .header {
+    font-size: 4rem;
+  }
+  .intro_text {
+    font-family: OSeongandHanEum;
+    font-size: 1.25em;
+    margin-top: 20px;
+  }
+  .right {
+    margin-bottom: 20px;
+    margin-top: -5vh;
+    margin-right: 2vh;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .AboutMeStyles {
+    display: flex;
+    overflow: hidden;
+    padding: 80px 0px 80px 0px;
+    min-height: 50vh;
+    background-size: cover;
+    background-color: #eeeee4;
+  }
+  .intro_text {
+    font-family: OSeongandHanEum;
+    font-size: 1.25em;
+  }
+
+  .header {
+    font-size: 3rem;
+  }
+  .right {
+    margin-bottom: 20px;
+    margin-top: -5vh;
+  }
+}
