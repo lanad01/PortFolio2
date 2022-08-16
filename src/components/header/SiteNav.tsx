@@ -19,6 +19,7 @@ interface SiteNavProps {
   isPost?: boolean;
   post?: any;
   onClick?: (e: string) => void;
+  gitClick: () => void;
 }
 
 interface SiteNavState {
@@ -94,7 +95,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
       marginTop: "10px",
       textAlign: "center",
     };
-    const onClick = (e: any) => {
+    const onClick = (e: string) => {
       this.props.onClick(e);
     };
 
@@ -126,6 +127,32 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                     참여 프로젝트
                   </div>
                 </li>
+                <Link to={"https://github.com/"}>
+                  <img
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      backgroundColor: "white",
+                      borderRadius: "40px",
+                      marginTop: "5px",
+                      marginLeft: "10px",
+                    }}
+                    src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                  ></img>
+                </Link>
+                <Link to={"https://lanad.tistory.com/"}>
+                  <img
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      backgroundColor: "white",
+                      borderRadius: "40px",
+                      marginTop: "5px",
+                      marginLeft: "10px",
+                    }}
+                    src="https://play-lh.googleusercontent.com/HOwb9RHtv3AsCEyB-v1ni4z1TMgjqUJRP9FWFLNVsG-D8xoxxtfjGigzudTgSs0l8_g"
+                  ></img>
+                </Link>
 
                 {/* <li role="menuitem">
                   <Link
